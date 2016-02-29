@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <link rel='stylesheet' href='./css/bootstrap.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='./css/main.css' type='text/css' media='all'>
+    <title>Проект1</title>
+</head>
+<body>
+ <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="menu">
+         <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Проект 1</a>
+          </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Домой</a></li>
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Список</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ещё <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Один</a></li>
+                  <li><a href="#">Два</a></li>
+                  <li><a href="#">Три</a></li>
+                </ul>
+              </li>
+          </ul>
+        </div>
+      </div>
+ </nav>
+  
+<div id="sidebar">
+<ul class="sidemenu">
+
+   <li><a href="#">пункт первый</a></li>
+   <li><a href="#">пункт второй</a></li>
+   <li><a href="#">пункт третий</a></li>
+   <li><a href="#">пункт четвертый</a></li>
+   <li><a href="#">пункт пятый</a></li>
+   <li><a href="#">пункт шестой</a></li>
+
+</ul>
+</div>
+
+ <div class="container">
+ <ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#home">Главная</a></li>
+  <li><a href="#list">Список</a></li>
+  <li><a href="#messages">Сообщения</a></li>
+</ul>
+ 
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+  <h2> Welcome! </h2></div>
+  <div class="tab-pane" id="list">
+   <h2>Список сотрудников</h2>
+   <table class="table">
+     <thead>
+       <tr>
+       <th>Имя</th>
+       <th>Фамилия</th>
+       <th>Почта</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>Иван</td>
+         <td>Николайчук</td>
+         <td>ivan@example.com</td>
+       </tr>
+       <tr>
+         <td>Мария</td>
+         <td>Иванова</td>
+         <td>mary@example.com</td>
+        </tr>
+       <tr>
+         <td>Юлия</td>
+         <td>Петренко</td>
+         <td>julia@example.com</td>
+       </tr>
+      </tbody>
+   </table></div>
+  <div class="tab-pane" id="messages">...</div>
+  <div class="tab-pane" id="settings">...</div>
+</div>
+  
+ </div>
+
+</body>
+<script src="./script/jquery.min.js"></script>
+<script src="./script/bootstrap.min.js"></script>
+<script>
+$('#myTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
+</script>
+</html>
