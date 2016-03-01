@@ -1,5 +1,6 @@
 var gulp = require("gulp"),
     concat = require("gulp-concat"),
+    uncss = require('gulp-uncss')
     cssmin = require("gulp-cssmin"),
     uglify = require('gulp-uglify');
 
@@ -35,7 +36,20 @@ gulp.task('js:build', function () {
 
 gulp.task("css:build", function () {
     gulp.src(path.src.style)
-        .pipe(concat('main.css'))
+        .pipe(concat('site.css'))
+        .pipe(uncss({
+            html: ['index.html']
+        }))
         .pipe(cssmin())
         .pipe(gulp.dest(path.build.css));
 });
+
+gulp.task('clean', function (cb) {
+    rimraf(path.clean, cb);
+});
+
+gulp.task('build', [
+    'html:build',
+    'js:build',
+    'css:build'
+]);
