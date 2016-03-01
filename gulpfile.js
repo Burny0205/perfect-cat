@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    watch = require('gulp-watch'),
     concat = require('gulp-concat'),
     uncss = require('gulp-uncss'),
     rimraf = require('rimraf'),
