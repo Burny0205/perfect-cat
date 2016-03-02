@@ -1,0 +1,25 @@
+{
+  "name": "project",
+  "description": "",
+  "main": "gupfile.js",
+  "authors": [
+    "Burny0205"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+
+    "dependencies": {
+    "bootstrap": "*",
+    "jquery": "2.*",
+    "components-font-awesome": "*",
+    "moment": "*",
+    "tinymce":"*"
+
+  }
+}

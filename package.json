@@ -1,0 +1,19 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Burny0205",
+  "license": "ISC",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-watch": "*",
+    "gulp-concat": "*",
+    "gulp-uncss": "*", 
+    "rimraf": "*",
+    "gulp-cssmin": "*",
+    "gulp-uglify": "*"
+  }
+}

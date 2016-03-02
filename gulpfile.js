@@ -7,23 +7,42 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify');
 
 var path = {
-    build: { 
-        html: './build/',
-        js: './build/js/',
-        css: './build/css/'
-    },
     src: { 
         html: './src/*.html', 
-        js: './src/js/*.js',
-        style: './src/css/*.css'
+        js: './src/script/*.js',
+        css: './src/css/*.css'
+    },
+    build: { 
+        html: './build/',
+        js: './build/script/',
+        css: './build/css/'
     },
     watch: { 
         html: './src/*.html',
-        js: './src/js/*.js',
-        style: './src/css/*.css',
+        js: './src/script/*.js',
+        css: './src/css/*.css'
     },
+    dist: {
+        css: './src/lib/bootstrap/dist/css/bootstrap.css',
+        js: ['./src/lib/jquery/dist/jquery.min.js', './src/lib/bootstrap/dist/js/bootstrap.min.js']
+    },
+    lib: { 
+        css: './src/css/',
+        js: './src/script/'
+    },        
     clean: './build'
+    
 };
+
+gulp.task('css:lib', function () {
+    gulp.src(path.dist.css) 
+        .pipe(gulp.dest(path.lib.css)) 
+});
+
+gulp.task('js:lib', function () {
+    gulp.src(path.dist.js) 
+        .pipe(gulp.dest(path.lib.js)) 
+});
 
 gulp.task('html:build', function () {
     gulp.src(path.src.html) 
@@ -31,16 +50,15 @@ gulp.task('html:build', function () {
 });
 
 gulp.task('js:build', function () {
-    gulp.src(path.src.js) 
+    gulp.src(path.src.js)
         .pipe(uglify()) 
         .pipe(gulp.dest(path.build.js)) 
 });
 
 gulp.task("css:build", function () {
-    gulp.src(path.src.style)
-        .pipe(concat('site.css'))
+    gulp.src(path.src.css)
         .pipe(uncss({
-            html: ['index.html']
+            html: ['src/default.html']
         }))
         .pipe(cssmin())
         .pipe(gulp.dest(path.build.css));
@@ -66,6 +84,11 @@ gulp.task('build', [
     'html:build',
     'js:build',
     'css:build'
+]);
+
+gulp.task('lib', [
+    'css:lib',
+    'js:lib'
 ]);
 
 gulp.task('default', ['clean','build']);
