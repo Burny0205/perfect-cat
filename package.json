@@ -4,16 +4,15 @@
   "description": "",
   "author": "Burny0205",
   "license": "ISC",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "*",
-    "gulp-watch": "*",
     "gulp-concat": "*",
-    "gulp-uncss": "*", 
-    "rimraf": "*",
     "gulp-cssmin": "*",
-    "gulp-uglify": "*"
+    "gulp-uglify": "*",
+    "gulp-uncss": "*",
+    "gulp-watch": "*",
+    "rimraf": "*",
+    "run-sequence": "*"
   }
 }

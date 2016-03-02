@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     uncss = require('gulp-uncss'),
     rimraf = require('rimraf'),
     cssmin = require('gulp-cssmin'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify')
+    runSequence = require('run-sequence');
 
 var path = {
     src: { 
@@ -80,15 +81,18 @@ gulp.task('watch', function(){
     });
 });
 
-gulp.task('build', [
-    'html:build',
-    'js:build',
-    'css:build'
-]);
+gulp.task('build', function(callback) {
+  runSequence('clean',
+              'css:build',
+              'js:build',
+              'html:build',       
+              callback);
+});
+
 
 gulp.task('lib', [
     'css:lib',
     'js:lib'
 ]);
 
-gulp.task('default', ['clean','build']);
+gulp.task('default', ['build']);
